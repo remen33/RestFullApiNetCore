@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "lE2U9zoE9xqaAqdo1vGiasPQ43fGd8sY/GI+xFidJLsOd6IWXPxP85QikLLc8bhqGal2N6czGueKTLDD8/dLoQ==",
+  "success": true,
+  "projectFilePath": "F:\\Codigo Fuente\\NetCore\\RestFullApiNetCore\\SocialMedia\\SocialMedia.Infrastructure\\SocialMedia.Infrastructure.csproj",
+  "expectedPackageFiles": [
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
