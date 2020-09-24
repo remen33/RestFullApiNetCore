@@ -3,6 +3,7 @@
     using Microsoft.AspNetCore.Mvc;
     using SocialMedia.Core.Interfaces;
     using SocialMedia.Infrastructure.Repositories;
+    using System.Threading.Tasks;
 
     [Route("api/[controller]")]
     [ApiController]
@@ -15,9 +16,9 @@
         }
 
         [HttpGet]
-        public IActionResult GetPosts()
+        public async Task<IActionResult> GetPosts()
         {
-            var posts = this.postRepository.GetPost();
+            var posts =  await this.postRepository.GetPost();
             return Ok(posts);
         }
     }
