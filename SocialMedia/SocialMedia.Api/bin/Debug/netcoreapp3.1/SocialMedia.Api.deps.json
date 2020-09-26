@@ -24,6 +24,7 @@
     ".NETCoreApp,Version=v3.1": {
       "SocialMedia.Api/1.0.0": {
         "dependencies": {
+          "AutoMapper.Extensions.Microsoft.DependencyInjection": "8.0.1",
           "Microsoft.EntityFrameworkCore.Design": "3.1.8",
           "SocialMedia.Core": "1.0.0",
           "SocialMedia.Infrastructure": "1.0.0",
@@ -302,6 +303,81 @@
         },
         "compile": {
           "SocialMedia.Api.dll": {}
+        }
+      },
+      "AutoMapper/10.0.0": {
+        "dependencies": {
+          "Microsoft.CSharp": "4.7.0",
+          "System.Reflection.Emit": "4.7.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/AutoMapper.dll": {
+            "assemblyVersion": "10.0.0.0",
+            "fileVersion": "10.0.0.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/AutoMapper.dll": {}
+        }
+      },
+      "AutoMapper.Extensions.Microsoft.DependencyInjection/8.0.1": {
+        "dependencies": {
+          "AutoMapper": "10.0.0",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "3.1.8",
+          "Microsoft.Extensions.Options": "3.1.8"
+        },
+        "runtime": {
+          "lib/netstandard2.0/AutoMapper.Extensions.Microsoft.DependencyInjection.dll": {
+            "assemblyVersion": "8.0.0.0",
+            "fileVersion": "8.0.1.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/AutoMapper.Extensions.Microsoft.DependencyInjection.dll": {}
+        }
+      },
+      "FluentValidation/8.6.3": {
+        "dependencies": {
+          "System.ComponentModel.Annotations": "4.7.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/FluentValidation.dll": {
+            "assemblyVersion": "8.0.0.0",
+            "fileVersion": "8.6.3.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/FluentValidation.dll": {}
+        }
+      },
+      "FluentValidation.AspNetCore/8.6.3": {
+        "dependencies": {
+          "FluentValidation": "8.6.3",
+          "FluentValidation.DependencyInjectionExtensions": "8.6.3"
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/FluentValidation.AspNetCore.dll": {
+            "assemblyVersion": "8.0.0.0",
+            "fileVersion": "8.6.3.0"
+          }
+        },
+        "compile": {
+          "lib/netcoreapp3.1/FluentValidation.AspNetCore.dll": {}
+        }
+      },
+      "FluentValidation.DependencyInjectionExtensions/8.6.3": {
+        "dependencies": {
+          "FluentValidation": "8.6.3",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "3.1.8"
+        },
+        "runtime": {
+          "lib/netstandard2.0/FluentValidation.DependencyInjectionExtensions.dll": {
+            "assemblyVersion": "8.0.0.0",
+            "fileVersion": "8.6.3.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/FluentValidation.DependencyInjectionExtensions.dll": {}
         }
       },
       "Microsoft.Bcl.AsyncInterfaces/1.1.1": {
@@ -910,7 +986,7 @@
           "System.Linq.Expressions": "4.3.0",
           "System.ObjectModel": "4.3.0",
           "System.Reflection": "4.3.0",
-          "System.Reflection.Emit": "4.3.0",
+          "System.Reflection.Emit": "4.7.0",
           "System.Reflection.Emit.ILGeneration": "4.3.0",
           "System.Reflection.Primitives": "4.3.0",
           "System.Reflection.TypeExtensions": "4.3.0",
@@ -997,7 +1073,7 @@
           "System.Linq": "4.3.0",
           "System.ObjectModel": "4.3.0",
           "System.Reflection": "4.3.0",
-          "System.Reflection.Emit": "4.3.0",
+          "System.Reflection.Emit": "4.7.0",
           "System.Reflection.Emit.ILGeneration": "4.3.0",
           "System.Reflection.Emit.Lightweight": "4.3.0",
           "System.Reflection.Extensions": "4.3.0",
@@ -1082,15 +1158,7 @@
           "System.Runtime": "4.3.0"
         }
       },
-      "System.Reflection.Emit/4.3.0": {
-        "dependencies": {
-          "System.IO": "4.3.0",
-          "System.Reflection": "4.3.0",
-          "System.Reflection.Emit.ILGeneration": "4.3.0",
-          "System.Reflection.Primitives": "4.3.0",
-          "System.Runtime": "4.3.0"
-        }
-      },
+      "System.Reflection.Emit/4.7.0": {},
       "System.Reflection.Emit.ILGeneration/4.3.0": {
         "dependencies": {
           "System.Reflection": "4.3.0",
@@ -1381,7 +1449,7 @@
           "System.IO": "4.3.0",
           "System.Linq": "4.3.0",
           "System.Reflection": "4.3.0",
-          "System.Reflection.Emit": "4.3.0",
+          "System.Reflection.Emit": "4.7.0",
           "System.Reflection.Emit.ILGeneration": "4.3.0",
           "System.Reflection.Extensions": "4.3.0",
           "System.Reflection.Primitives": "4.3.0",
@@ -1405,6 +1473,8 @@
       },
       "SocialMedia.Infrastructure/1.0.0": {
         "dependencies": {
+          "AutoMapper.Extensions.Microsoft.DependencyInjection": "8.0.1",
+          "FluentValidation.AspNetCore": "8.6.3",
           "Microsoft.EntityFrameworkCore.SqlServer": "3.1.8",
           "SocialMedia.Core": "1.0.0"
         },
@@ -3037,6 +3107,41 @@
       "serviceable": false,
       "sha512": ""
     },
+    "AutoMapper/10.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-T09NoqMZBqw0/JEauXulxnmmerl0Zj03e0r6VCcJ0LURWBIaYxZPPoiDv8bHf5Y4x2xcXJp4JPXoCaeOMJfHEA==",
+      "path": "automapper/10.0.0",
+      "hashPath": "automapper.10.0.0.nupkg.sha512"
+    },
+    "AutoMapper.Extensions.Microsoft.DependencyInjection/8.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-hhUzmc8Ld7wCuVHJFodsxtPmFqBAhB6nUNQUgaMF3uamQdxOLxntG0dwv+5ApC67GABa8Oay8MEYGg5IgVZP1Q==",
+      "path": "automapper.extensions.microsoft.dependencyinjection/8.0.1",
+      "hashPath": "automapper.extensions.microsoft.dependencyinjection.8.0.1.nupkg.sha512"
+    },
+    "FluentValidation/8.6.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-UT2dcKiSFz9fNQT7xXlZfk87IJxf6KEjaTaFHGZVmJNPylcFWU/Fp5vBWeILHuRBxnXckM+WDo6kK4YTqGjRXw==",
+      "path": "fluentvalidation/8.6.3",
+      "hashPath": "fluentvalidation.8.6.3.nupkg.sha512"
+    },
+    "FluentValidation.AspNetCore/8.6.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-3Oiw2b0+bGp7B4v8txUsmpvxRkHsym5tPzqs9pWQygsP2zb0fDpPMWoXdVYKoksPrfNLgYvZLzMS1EwajoQtlQ==",
+      "path": "fluentvalidation.aspnetcore/8.6.3",
+      "hashPath": "fluentvalidation.aspnetcore.8.6.3.nupkg.sha512"
+    },
+    "FluentValidation.DependencyInjectionExtensions/8.6.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-F9lxRvyKRgHjeKZx+F0lV0T2+qeTMDzwe+merGnghmP9KlBXvlkSzZEr0+GfhKiQekoX1hIoKGtrILTYkJUkPA==",
+      "path": "fluentvalidation.dependencyinjectionextensions/8.6.3",
+      "hashPath": "fluentvalidation.dependencyinjectionextensions.8.6.3.nupkg.sha512"
+    },
     "Microsoft.Bcl.AsyncInterfaces/1.1.1": {
       "type": "package",
       "serviceable": true,
@@ -3485,12 +3590,12 @@
       "path": "system.reflection/4.3.0",
       "hashPath": "system.reflection.4.3.0.nupkg.sha512"
     },
-    "System.Reflection.Emit/4.3.0": {
+    "System.Reflection.Emit/4.7.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-228FG0jLcIwTVJyz8CLFKueVqQK36ANazUManGaJHkO0icjiIypKW7YLWLIWahyIkdh5M7mV2dJepllLyA1SKg==",
-      "path": "system.reflection.emit/4.3.0",
-      "hashPath": "system.reflection.emit.4.3.0.nupkg.sha512"
+      "sha512": "sha512-VR4kk8XLKebQ4MZuKuIni/7oh+QGFmZW3qORd1GvBq/8026OpW501SzT/oypwiQl4TvT8ErnReh/NzY9u+C6wQ==",
+      "path": "system.reflection.emit/4.7.0",
+      "hashPath": "system.reflection.emit.4.7.0.nupkg.sha512"
     },
     "System.Reflection.Emit.ILGeneration/4.3.0": {
       "type": "package",

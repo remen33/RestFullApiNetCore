@@ -61,5 +61,11 @@ F:\Codigo Fuente\NetCore\RestFullApiNetCore\SocialMedia\SocialMedia.Api\bin\Debu
 F:\Codigo Fuente\NetCore\RestFullApiNetCore\SocialMedia\SocialMedia.Api\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 F:\Codigo Fuente\NetCore\RestFullApiNetCore\SocialMedia\SocialMedia.Api\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 F:\Codigo Fuente\NetCore\RestFullApiNetCore\SocialMedia\SocialMedia.Api\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
+F:\Codigo Fuente\NetCore\RestFullApiNetCore\SocialMedia\SocialMedia.Api\bin\Debug\netcoreapp3.1\AutoMapper.dll
+F:\Codigo Fuente\NetCore\RestFullApiNetCore\SocialMedia\SocialMedia.Api\bin\Debug\netcoreapp3.1\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 F:\Codigo Fuente\NetCore\RestFullApiNetCore\SocialMedia\SocialMedia.Api\obj\Debug\netcoreapp3.1\SocialMedia.Api.csproj.CoreCompileInputs.cache
 F:\Codigo Fuente\NetCore\RestFullApiNetCore\SocialMedia\SocialMedia.Api\obj\Debug\netcoreapp3.1\SocialMedia.Api.MvcApplicationPartsAssemblyInfo.cache
+F:\Codigo Fuente\NetCore\RestFullApiNetCore\SocialMedia\SocialMedia.Api\bin\Debug\netcoreapp3.1\FluentValidation.dll
+F:\Codigo Fuente\NetCore\RestFullApiNetCore\SocialMedia\SocialMedia.Api\bin\Debug\netcoreapp3.1\FluentValidation.AspNetCore.dll
+F:\Codigo Fuente\NetCore\RestFullApiNetCore\SocialMedia\SocialMedia.Api\bin\Debug\netcoreapp3.1\FluentValidation.DependencyInjectionExtensions.dll
+F:\Codigo Fuente\NetCore\RestFullApiNetCore\SocialMedia\SocialMedia.Api\obj\Debug\netcoreapp3.1\SocialMedia.Api.MvcApplicationPartsAssemblyInfo.cs

@@ -6,6 +6,14 @@
 
     public interface IPostRepository
     {
-        Task<IEnumerable<Publicacion>> GetPost();
+        Task<IEnumerable<Post>> GetPost();
+
+        Task<Post> GetPost(int postId);
+
+        Task InsertPost(Post post);
+
+        Task<bool> UpdatePost(Post post);
+
+        Task<bool> DeletePost(int id);
     }
 }
