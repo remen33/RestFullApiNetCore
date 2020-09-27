@@ -13,19 +13,19 @@
     [ApiController]
     public class PostController : ControllerBase
     {
-        private readonly IPostRepository postRepository;
-        private readonly IMapper mapper;
-        
-        public PostController(IPostRepository postRepository, IMapper mapper)
-        {
-            this.postRepository = postRepository;
+        private readonly IPostService postService;
+        private readonly IMapper mapper;       
+
+        public PostController(IPostService postService, IMapper mapper)
+        {            
+            this.postService = postService;
             this.mapper = mapper;
         }
 
         [HttpGet]
         public async Task<IActionResult> GetPosts()
         {
-            var posts =  await this.postRepository.GetPost();
+            var posts =  await this.postService.GetPost();
             var postsDto = this.mapper.Map<IEnumerable<PostDto>>(posts);
             var response = new ApiResponse<IEnumerable<PostDto>>(postsDto);
             return Ok(response);
@@ -34,9 +34,9 @@
         [HttpGet("{id}")]
         public async Task<IActionResult> GetPosts(int id)
         {
-            var posts = await this.postRepository.GetPost(id);
-            var postsDto = this.mapper.Map<IEnumerable<PostDto>>(posts);
-            var response = new ApiResponse<IEnumerable<PostDto>>(postsDto);
+            var posts = await this.postService.GetPost(id);
+            var postsDto = this.mapper.Map<PostDto>(posts);
+            var response = new ApiResponse<PostDto>(postsDto);
             return Ok(response);
         }
 
@@ -44,7 +44,7 @@
         public async Task<IActionResult> Post(PostDto postDto)
         {
             var post = this.mapper.Map<Post>(postDto);
-            await this.postRepository.InsertPost(post);
+            await this.postService.InsertPost(post);
             postDto = this.mapper.Map<PostDto>(post);
             var response = new ApiResponse<PostDto>(postDto);
             return Ok(response);
@@ -54,8 +54,8 @@
         public async Task<IActionResult> Put(int id, PostDto postDto)
         {
             var post = this.mapper.Map<Post>(postDto);
-            post.PostId = id;
-            var result = await this.postRepository.UpdatePost(post);
+            post.Id = id;
+            var result = await this.postService.UpdatePost(post);
             var response = new ApiResponse<bool>(result);
             return Ok(response);
         }
@@ -63,7 +63,7 @@
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {            
-            var result = await this.postRepository.DeletePost(id);
+            var result = await this.postService.DeletePost(id);
             var response = new ApiResponse<bool>(result);
             return Ok(response);
         }

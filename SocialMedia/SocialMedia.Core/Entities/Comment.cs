@@ -2,9 +2,8 @@
 {
     using System;
 
-    public partial class Comment
-    {
-        public int CommentId { get; set; }
+    public partial class Comment : BaseEntity
+    {        
         public int PostId { get; set; }
         public int UserId { get; set; }
         public string Description { get; set; }

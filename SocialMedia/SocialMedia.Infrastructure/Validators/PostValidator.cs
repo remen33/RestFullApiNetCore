@@ -14,7 +14,7 @@
 
             RuleFor(post => post.Date)
                 .NotNull()
-                .LessThan(DateTime.Now);
+                .LessThan(DateTime.Now);     
         }
     }
 }

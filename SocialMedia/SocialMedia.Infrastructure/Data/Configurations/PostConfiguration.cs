@@ -9,7 +9,7 @@
         public void Configure(EntityTypeBuilder<Post> builder)
         {
             builder.ToTable("Publicacion");
-            builder.HasKey((System.Linq.Expressions.Expression<System.Func<Post, object>>)(e => (object)e.PostId));
+            builder.HasKey((System.Linq.Expressions.Expression<System.Func<Post, object>>)(e => (object)e.Id));
 
             builder.Property(e => e.Description)
               .HasColumnName("Descripcion")
@@ -17,7 +17,7 @@
                 .HasMaxLength(1000)
                 .IsUnicode(false);
 
-            builder.Property(e => e.PostId)
+            builder.Property(e => e.Id)
             .HasColumnName("IdPublicacion");
 
             builder.Property(e => e.UserId)
