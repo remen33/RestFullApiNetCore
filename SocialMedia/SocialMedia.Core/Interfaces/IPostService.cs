@@ -1,12 +1,13 @@
 ﻿namespace SocialMedia.Core.Interfaces
 {
     using SocialMedia.Core.Entities;
+    using SocialMedia.Core.QueryFilters;
     using System.Collections.Generic;
     using System.Threading.Tasks;
 
     public interface IPostService
     {
-        Task<IEnumerable<Post>> GetPost();
+        IEnumerable<Post> GetPost(PostQueryFilter filters);
 
         Task<Post> GetPost(int postId);
 

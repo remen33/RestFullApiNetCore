@@ -6,7 +6,10 @@
     using SocialMedia.Core.DTOs;
     using SocialMedia.Core.Entities;
     using SocialMedia.Core.Interfaces;
+    using SocialMedia.Core.QueryFilters;
+    using System;
     using System.Collections.Generic;
+    using System.Net;
     using System.Threading.Tasks;
 
     [Route("api/[controller]")]
@@ -14,26 +17,30 @@
     public class PostController : ControllerBase
     {
         private readonly IPostService postService;
-        private readonly IMapper mapper;       
+        private readonly IMapper mapper;
 
         public PostController(IPostService postService, IMapper mapper)
-        {            
+        {
             this.postService = postService;
             this.mapper = mapper;
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetPosts()
+        [ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(ApiResponse<IEnumerable<PostDto>>))]
+        [ProducesResponseType((int)HttpStatusCode.BadRequest, Type = typeof(ApiResponse<PostDto>))]
+        public IActionResult GetPosts([FromQuery] PostQueryFilter filters)
         {
-            var posts =  await this.postService.GetPost();
+            var posts =  this.postService.GetPost(filters);
             var postsDto = this.mapper.Map<IEnumerable<PostDto>>(posts);
             var response = new ApiResponse<IEnumerable<PostDto>>(postsDto);
             return Ok(response);
         }
 
         [HttpGet("{id}")]
+        [ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(ApiResponse<PostDto>))]
         public async Task<IActionResult> GetPosts(int id)
         {
+        
             var posts = await this.postService.GetPost(id);
             var postsDto = this.mapper.Map<PostDto>(posts);
             var response = new ApiResponse<PostDto>(postsDto);

@@ -9,7 +9,7 @@
     public class UnitOfWork : IUnitOfWork
     {
         private readonly SocialMediaContext socialMediaContext;
-        private readonly IRepository<Post> postRepository;
+        private readonly IPostRepository postRepository;
         private readonly IRepository<User> userRepository;
         private readonly IRepository<Comment> commentRepository;
 
@@ -17,7 +17,7 @@
         {
             this.socialMediaContext = socialMediaContext;
         }
-        public IRepository<Post> PostRepository => postRepository ?? new BaseRepository<Post>(this.socialMediaContext);
+        public IPostRepository PostRepository => postRepository ?? new PostRepository(this.socialMediaContext);
 
         public IRepository<User> UserRepository => userRepository ?? new BaseRepository<User>(this.socialMediaContext);
 

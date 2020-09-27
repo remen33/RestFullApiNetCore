@@ -1,5 +1,3 @@
-
-
 namespace SocialMedia.Api
 {
     using AutoMapper;
@@ -30,7 +28,9 @@ namespace SocialMedia.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-            services.AddControllers();
+            services.AddControllers(options => {
+                options.Filters.Add<GlobalExceptionFilter>();
+            });
 
             /// Dependencias
             services.AddDbContext<SocialMediaContext>(options

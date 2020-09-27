@@ -1,9 +1,13 @@
 ﻿namespace SocialMedia.Core.Services
 {
+    using System;
     using System.Collections.Generic;
+    using System.Linq;
     using System.Threading.Tasks;
     using SocialMedia.Core.Entities;
+    using SocialMedia.Core.Exceptions;
     using SocialMedia.Core.Interfaces;
+    using SocialMedia.Core.QueryFilters;
 
     public class PostService : IPostService
     {
@@ -13,9 +17,26 @@
             this.unitOfWork = unitOfWork;            
         }
 
-        public async Task<IEnumerable<Post>> GetPost()
+        public IEnumerable<Post> GetPost(PostQueryFilter filters)
         {
-            return await this.unitOfWork.PostRepository.GetAll();
+            var posts = this.unitOfWork.PostRepository.GetAll();
+
+            if (filters.UserId != null)
+            {
+                posts = posts.Where(x => x.UserId == filters.UserId);
+            }
+
+            if (filters.Date != null)
+            {
+                posts = posts.Where(x => x.Date.ToShortDateString() == filters.Date.Value.ToShortDateString());
+            }
+
+            if (filters.Description != null)
+            {
+                posts = posts.Where(x => x.Description.ToLower().Contains(filters.Description.ToLower()));
+            }
+
+            return posts;
         }
 
         public async Task<Post> GetPost(int postId)
@@ -29,20 +50,34 @@
 
             if (currentUser == null)
             {
-                throw new System.Exception("User doesn't exist");
+                throw new BusinessException("User doesn't exist");
+            }
+
+            var userPosts = await this.unitOfWork.PostRepository.GetPostbyUser(post.UserId);
+
+            if (userPosts != null && userPosts.Count() < 10)
+            {
+                var lastPost = userPosts.OrderByDescending(q => q.Date).FirstOrDefault();
+
+                if ((DateTime.Now - lastPost.Date).TotalDays < 7)
+                {
+                    throw new BusinessException("You are not able to publish the post");
+                }
             }
 
             if(post.Description.ToLower().Contains("sexo"))
             {
-                throw new System.Exception("Content not allowed");
+                throw new BusinessException("Content not allowed");
             }
 
             await this.unitOfWork.PostRepository.Add(post);
+            await this.unitOfWork.SaveChangesAsync();
         }
 
         public async Task<bool> UpdatePost(Post post)
         {
-            await this.unitOfWork.PostRepository.Update(post);
+            this.unitOfWork.PostRepository.Update(post);
+            await this.unitOfWork.SaveChangesAsync();
             return true;
         }
 
