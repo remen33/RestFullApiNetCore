@@ -63,9 +63,12 @@ F:\Codigo Fuente\NetCore\RestFullApiNetCore\SocialMedia\SocialMedia.Api\bin\Debu
 F:\Codigo Fuente\NetCore\RestFullApiNetCore\SocialMedia\SocialMedia.Api\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
 F:\Codigo Fuente\NetCore\RestFullApiNetCore\SocialMedia\SocialMedia.Api\bin\Debug\netcoreapp3.1\AutoMapper.dll
 F:\Codigo Fuente\NetCore\RestFullApiNetCore\SocialMedia\SocialMedia.Api\bin\Debug\netcoreapp3.1\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
-F:\Codigo Fuente\NetCore\RestFullApiNetCore\SocialMedia\SocialMedia.Api\obj\Debug\netcoreapp3.1\SocialMedia.Api.csproj.CoreCompileInputs.cache
-F:\Codigo Fuente\NetCore\RestFullApiNetCore\SocialMedia\SocialMedia.Api\obj\Debug\netcoreapp3.1\SocialMedia.Api.MvcApplicationPartsAssemblyInfo.cache
 F:\Codigo Fuente\NetCore\RestFullApiNetCore\SocialMedia\SocialMedia.Api\bin\Debug\netcoreapp3.1\FluentValidation.dll
 F:\Codigo Fuente\NetCore\RestFullApiNetCore\SocialMedia\SocialMedia.Api\bin\Debug\netcoreapp3.1\FluentValidation.AspNetCore.dll
 F:\Codigo Fuente\NetCore\RestFullApiNetCore\SocialMedia\SocialMedia.Api\bin\Debug\netcoreapp3.1\FluentValidation.DependencyInjectionExtensions.dll
+F:\Codigo Fuente\NetCore\RestFullApiNetCore\SocialMedia\SocialMedia.Api\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
+F:\Codigo Fuente\NetCore\RestFullApiNetCore\SocialMedia\SocialMedia.Api\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+F:\Codigo Fuente\NetCore\RestFullApiNetCore\SocialMedia\SocialMedia.Api\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
+F:\Codigo Fuente\NetCore\RestFullApiNetCore\SocialMedia\SocialMedia.Api\obj\Debug\netcoreapp3.1\SocialMedia.Api.csproj.CoreCompileInputs.cache
 F:\Codigo Fuente\NetCore\RestFullApiNetCore\SocialMedia\SocialMedia.Api\obj\Debug\netcoreapp3.1\SocialMedia.Api.MvcApplicationPartsAssemblyInfo.cs
+F:\Codigo Fuente\NetCore\RestFullApiNetCore\SocialMedia\SocialMedia.Api\obj\Debug\netcoreapp3.1\SocialMedia.Api.MvcApplicationPartsAssemblyInfo.cache

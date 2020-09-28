@@ -2,11 +2,14 @@
 {
     using AutoMapper;
     using Microsoft.AspNetCore.Mvc;
+    using Newtonsoft.Json;
     using SocialMedia.Api.Response;
+    using SocialMedia.Core.CustomEntities;
     using SocialMedia.Core.DTOs;
     using SocialMedia.Core.Entities;
     using SocialMedia.Core.Interfaces;
     using SocialMedia.Core.QueryFilters;
+    using SocialMedia.Infrastructure.Interfaces;
     using System;
     using System.Collections.Generic;
     using System.Net;
@@ -18,21 +21,40 @@
     {
         private readonly IPostService postService;
         private readonly IMapper mapper;
+        private readonly IUriService uriService;
 
-        public PostController(IPostService postService, IMapper mapper)
+        public PostController(IPostService postService, IMapper mapper, IUriService uriService)
         {
             this.postService = postService;
             this.mapper = mapper;
+            this.uriService = uriService;
         }
 
-        [HttpGet]
+        [HttpGet(Name = nameof(GetPosts))]
         [ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(ApiResponse<IEnumerable<PostDto>>))]
         [ProducesResponseType((int)HttpStatusCode.BadRequest, Type = typeof(ApiResponse<PostDto>))]
         public IActionResult GetPosts([FromQuery] PostQueryFilter filters)
         {
-            var posts =  this.postService.GetPost(filters);
+            var posts = this.postService.GetPost(filters);
             var postsDto = this.mapper.Map<IEnumerable<PostDto>>(posts);
-            var response = new ApiResponse<IEnumerable<PostDto>>(postsDto);
+
+            var metada = new Metadata()
+            {
+                TotalPages = posts.TotalPages,
+                PageSize = posts.PageSize,
+                CurrrentPage = posts.CurrrentPage,
+                TotalCount = posts.TotalCount,
+                HasNextPage = posts.HasNextPage,
+                HasPreviousPage = posts.HasPreviousPage,
+                NextPageUrl = this.uriService.GetPostPaginationUri(filters, Url.RouteUrl(nameof(GetPosts))).ToString(),
+                PreviousPageUrl = this.uriService.GetPostPaginationUri(filters, Url.RouteUrl(nameof(GetPosts))).ToString()
+            };
+
+            var response = new ApiResponse<IEnumerable<PostDto>>(postsDto)
+            {
+                Metadata = metada
+            };
+            Response.Headers.Add("X-Pagination", JsonConvert.SerializeObject(metada));
             return Ok(response);
         }
 
@@ -40,7 +62,7 @@
         [ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(ApiResponse<PostDto>))]
         public async Task<IActionResult> GetPosts(int id)
         {
-        
+
             var posts = await this.postService.GetPost(id);
             var postsDto = this.mapper.Map<PostDto>(posts);
             var response = new ApiResponse<PostDto>(postsDto);
@@ -69,7 +91,7 @@
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
-        {            
+        {
             var result = await this.postService.DeletePost(id);
             var response = new ApiResponse<bool>(result);
             return Ok(response);

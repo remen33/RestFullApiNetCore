@@ -1,24 +1,30 @@
 ﻿namespace SocialMedia.Core.Services
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Threading.Tasks;
+    using Microsoft.Extensions.Options;
+    using SocialMedia.Core.CustomEntities;
     using SocialMedia.Core.Entities;
     using SocialMedia.Core.Exceptions;
     using SocialMedia.Core.Interfaces;
     using SocialMedia.Core.QueryFilters;
+    using System;
+    using System.Linq;
+    using System.Threading.Tasks;
 
     public class PostService : IPostService
     {
-        private readonly IUnitOfWork unitOfWork;        
-        public PostService(IUnitOfWork unitOfWork)
+        private readonly IUnitOfWork unitOfWork;
+        private readonly PaginationOptions paginationOptions;
+        public PostService(IUnitOfWork unitOfWork, IOptions<PaginationOptions> options)
         {
-            this.unitOfWork = unitOfWork;            
+            this.unitOfWork = unitOfWork;
+            this.paginationOptions = options.Value;
         }
 
-        public IEnumerable<Post> GetPost(PostQueryFilter filters)
+        public PagedList<Post> GetPost(PostQueryFilter filters)
         {
+            filters.PageNumber = filters.PageNumber == 0 ? paginationOptions.DefaultPageNumber : filters.PageNumber;
+            filters.PageSize = filters.PageSize == 0 ? paginationOptions.DefaultPageSize : filters.PageSize;
+
             var posts = this.unitOfWork.PostRepository.GetAll();
 
             if (filters.UserId != null)
@@ -36,7 +42,9 @@
                 posts = posts.Where(x => x.Description.ToLower().Contains(filters.Description.ToLower()));
             }
 
-            return posts;
+            var pagedPosts = PagedList<Post>.Create(posts, filters.PageNumber, filters.PageSize);
+
+            return pagedPosts;
         }
 
         public async Task<Post> GetPost(int postId)
