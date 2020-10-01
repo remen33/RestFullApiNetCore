@@ -93,4 +93,3 @@ F:\Codigo Fuente\NetCore\RestFullApiNetCore\SocialMedia\SocialMedia.UnitTest\obj
 F:\Codigo Fuente\NetCore\RestFullApiNetCore\SocialMedia\SocialMedia.UnitTest\obj\Debug\netcoreapp3.1\SocialMedia.UnitTest.dll
 F:\Codigo Fuente\NetCore\RestFullApiNetCore\SocialMedia\SocialMedia.UnitTest\obj\Debug\netcoreapp3.1\SocialMedia.UnitTest.pdb
 F:\Codigo Fuente\NetCore\RestFullApiNetCore\SocialMedia\SocialMedia.UnitTest\obj\Debug\netcoreapp3.1\SocialMedia.UnitTest.genruntimeconfig.cache
-F:\Codigo Fuente\NetCore\RestFullApiNetCore\SocialMedia\SocialMedia.UnitTest\obj\Debug\netcoreapp3.1\SocialMedia.UnitTest.csprojAssemblyReference.cache
